@@ -1,2 +1,17 @@
 
-/* Your CSS Code here. */
+/* Your CSS Code here. */table {
+    width: 200px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+#total-row {
+    font-weight: bold;
+    background-color: #f2f2f2;
+}
