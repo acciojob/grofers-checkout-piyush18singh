@@ -1,38 +1,33 @@
-document.querySelector('button').addEventListener('click', () => {
-    // 1. Select all current price elements
-    const priceElements = document.querySelectorAll('.prices');
-    let sum = 0;
+document.getElementById('calculate-btn').addEventListener('click', function() {
+    // 1. Select all elements with class 'price'
+    const priceElements = document.querySelectorAll('.price');
+    let totalPrice = 0;
 
-    // 2. Calculate sum based on current text content
-    priceElements.forEach((el) => {
-        const value = parseFloat(el.textContent);
-        if (!isNaN(value)) {
-            sum += value;
-        }
+    // 2. Loop through the NodeList and add prices to the total
+    priceElements.forEach(item => {
+        // Convert text content to a number
+        totalPrice += parseFloat(item.textContent);
     });
 
-    // 3. Handle the display of the result
-    const table = document.querySelector('table');
-    
-    // Check if a result element already exists to avoid duplicates
-    let ansElement = document.getElementById('ans');
-    
-    if (!ansElement) {
-        // Create a new row for the total
-        const newRow = document.createElement('tr');
-        const newCell = document.createElement('td');
-        
-        // The test specifically looks for #ans
-        newCell.id = 'ans';
-        // Set colspan so it occupies the whole row width if desired
-        newCell.setAttribute('colspan', '2'); 
-        
-        newRow.appendChild(newCell);
-        table.appendChild(newRow);
-        
-        ansElement = newCell;
+    // 3. Check if a total row already exists to avoid duplicates
+    const existingTotal = document.querySelector('.total-row');
+    if (existingTotal) {
+        existingTotal.remove();
     }
 
-    // 4. Update the content with the calculated sum
-    ansElement.textContent = sum;
+    // 4. Create a new row and a single cell for the total
+    const table = document.getElementById('grocery-table');
+    const newRow = document.createElement('tr');
+    newRow.className = 'total-row';
+
+    const totalCell = document.createElement('td');
+    
+    // Make the cell span across both columns
+    totalCell.setAttribute('colspan', '2');
+    totalCell.textContent = `Total Price: ₹${totalPrice}`;
+    totalCell.style.textAlign = 'center';
+
+    // 5. Append cell to row, and row to table
+    newRow.appendChild(totalCell);
+    table.appendChild(newRow);
 });
