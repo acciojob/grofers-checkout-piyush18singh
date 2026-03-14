@@ -2,41 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grofers Checkout</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h2>Grocery List</h2>
-    <table id="grocery-table">
+    <table>
         <thead>
             <tr>
                 <th>Item</th>
-                <th>Price (₹)</th>
+                <th>Price</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="table-body">
             <tr>
-                <td class="item">Basmati Rice</td>
-                <td class="price">100</td>
+                <td class="item">Item 1</td>
+                <td class="prices">10</td>
             </tr>
             <tr>
-                <td class="item">Cooking Oil</td>
-                <td class="price">180</td>
+                <td class="item">Item 2</td>
+                <td class="prices">20</td>
             </tr>
             <tr>
-                <td class="item">Sugar</td>
-                <td class="price">45</td>
+                <td class="item">Item 3</td>
+                <td class="prices">30</td>
             </tr>
             <tr>
-                <td class="item">Tea Powder</td>
-                <td class="price">125</td>
+                <td class="item">Item 4</td>
+                <td class="prices">40</td>
+            </tr>
+            <tr>
+                <td class="item">Item 5</td>
+                <td class="prices">50</td>
             </tr>
         </tbody>
     </table>
 
-    <button id="calculate-btn">Calculate Total</button>
+    <button id="btn">Calculate Total</button>
 
     <script src="script.js"></script>
 </body>
